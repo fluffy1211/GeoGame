@@ -29,7 +29,13 @@ map.on('click', function(e) {
     var markersCount = markersGroup.getLayers().length;
 
     if (markersCount < MARKERS_MAX) {
-        L.marker(e.latlng).addTo(markersGroup);
+        var marker = L.marker(e.latlng).addTo(markersGroup);
+        marker.on('click', function(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent("Vous avez cliqué sur le marqueur aux coordonnées : " + e.latlng.toString())
+                .openOn(map);
+        });
         return;
     }
 
