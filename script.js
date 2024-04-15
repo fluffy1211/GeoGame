@@ -1,6 +1,40 @@
 var map = L.map('map').setView([48.866667, 2.333333], 13);
-var div = document.getElementById('map');
+const div = document.getElementById('map');
 const popup = L.popup();
+const btn = document.querySelector('.cityRequest');
+
+console.log(btn);
+
+// Get a random city
+
+btn.addEventListener('click', () => {
+    fetch('https://api.api-ninjas.com/v1/city?limit=1' , {
+        method: 'GET',
+        headers: {'X-Api-Key': 'I9rDpD1fxkDYiluZ6TQTyg==KdZHlXIUVj2pSjLj' },
+        contentType: 'application/json',
+    })
+        .then(response => response.json())
+        .then(data => {
+            const cities = data;
+            const randomIndex = Math.floor(Math.random() * cities.length);
+            const randomCity = cities[randomIndex];
+            const lat = randomCity.latitude;
+            const lon = randomCity.longitude;
+
+            // Display city name and coordinates on the page
+            const cityInfo = `City: ${randomCity.name}<br>Latitude: ${lat}<br>Longitude: ${lon}`;
+            const resultDiv = document.getElementById('question');
+            resultDiv.innerHTML = cityInfo;
+
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
+
+
+
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,

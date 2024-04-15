@@ -8,3 +8,14 @@
     text-align: center;
     margin-top: 3rem;
   }
+
+  button {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  #question {
+    text-align: center;
+    margin-top: 4rem;
+  }
