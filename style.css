@@ -59,3 +59,14 @@ button {
 .animate__bounceIn {
     --animate-duration: 2s;
 }
+
+p {
+    font-size: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+    
+}
+
+/* .animate_rotateIn {
+    --animate-duration: 30s;
+} */

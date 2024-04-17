@@ -7,7 +7,6 @@ var circle = L.circle();
 const btn = document.querySelector('.next');
 const button = document.querySelector('.button');
 
-
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -61,7 +60,8 @@ axios.get('https://restcountries.com/v3.1/all')
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.5,
-            radius: 10000// Set the desired radius in meters
+            radius: 690000// Set the desired radius in meters
+            
         });  
 
 
@@ -75,22 +75,27 @@ axios.get('https://restcountries.com/v3.1/all')
         });
 
         map.on('click', function(e) {
+
+            const message = document.createElement('p');
+            message.className = 'animate__animated animate__bounceInUp';
             
             if (!circle.getBounds().contains(e.latlng)) {
-            marker = L.marker(latlng).addTo(map);
-            redmarker = L.marker(latlng, {icon: redmarker}).addTo(map);
-            setTimeout(function() {                
-            alert("Tu pues la merde !");
-            }, 500);
+                marker = L.marker(latlng).addTo(map);
+                redmarker = L.marker(latlng, {icon: redmarker}).addTo(map);
+                setTimeout(function() {                
+                    message.textContent = `Tu pues la merde !`;
+                    
+                }, 500);
             } else {
-            marker = L.marker(latlng).addTo(map);               
-            redmarker = L.marker(latlng, {icon: redmarker}).addTo(map);
-            setTimeout(function() {  
-            alert("Bien joué...");
-            }, 500);
+                marker = L.marker(latlng).addTo(map);               
+                redmarker = L.marker(latlng, {icon: redmarker}).addTo(map);
+                setTimeout(function() {  
+                    message.textContent = "Bien joué...";
+                }, 500);
             }
 
-            
+            document.body.appendChild(message);
+
             const nextBtn = document.createElement('button');
             nextBtn.className = 'animate__animated animate__bounceIn';
             nextBtn.textContent = 'Next';
@@ -119,4 +124,3 @@ axios.get('https://restcountries.com/v3.1/all')
         console.error(error);
     }
     );
-
