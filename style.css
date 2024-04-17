@@ -1,21 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
 #map {
-    width: 50%;
-    height: 40rem;
-    margin: 5rem auto;
+    width: 70%;
+    height: 36rem;
+    margin: 0 auto;
+    border : 3px solid black;
+    margin-top: 3rem;
+    position: sticky;
   }
 
   h1 {
     text-align: center;
     margin-top: 3rem;
+    color: rgb(47, 104, 106);
   }
 
-  button {
+  .cards {
+    display: flex;
+   align-items: center;
+  justify-content: center;
+  }
+
+  h2 {
+    margin-left: 15rem;
+    margin-right: 15rem;
+    font-size: 1.2rem;
+  }
+
+button {
+    width: 10rem;
+    height: 7rem;
     display: block;
     margin: 0 auto;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    margin-bottom: -4.35rem;
     cursor: pointer;
-  }
+    border: 1px solid black;
+    font-size: 1.3rem;
+    position : absolute;
+    z-index: 1;
+    right: 15rem;
+    bottom: 47rem;
+    /* bottom: 10rem; */
 
-  #question {
-    text-align: center;
-    margin-top: 4rem;
-  }
+}
+
+.animate__bounceIn {
+    --animate-duration: 2s;
+}
