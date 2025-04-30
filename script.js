@@ -1,5 +1,3 @@
-// import "./node_modules/animate.css";
-
 var map = L.map('map').setView([48.866667, 2.333333], 2);
 var div = document.getElementById('map');
 const popup = L.popup();
@@ -83,7 +81,7 @@ axios.get('https://restcountries.com/v3.1/all')
                 marker = L.marker(latlng).addTo(map);
                 redmarker = L.marker(latlng, {icon: redmarker}).addTo(map);
                 setTimeout(function() {                
-                    message.textContent = `Tu pues la merde !`;
+                    message.textContent = `Dommage, tu as perdu !`;
                     
                 }, 500);
             } else {
